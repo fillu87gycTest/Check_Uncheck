@@ -1,15 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApplication40
+class Program
 {
-	class Program
+	static void Main()
 	{
-		static void Main(string[] args)
+		byte a = 100, b=200;
+		byte result;
+
+		try
 		{
+			result = unchecked((byte)( a + b));
+			Console.WriteLine("Over Flow \nresult ->" + result);
+			result = checked((byte)(a + b));
+			Console.WriteLine("non check");
+		}
+		catch (OverflowException exp)
+		{
+			Console.WriteLine("-------------------------");
+			Console.WriteLine(exp);
+			Console.WriteLine("-------------------------");
 		}
 	}
 }
